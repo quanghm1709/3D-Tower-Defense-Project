@@ -7,6 +7,7 @@ public class FireBallController : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] public float speed;
     [SerializeField] private bool isEnemyBullet;
+    [SerializeField] private float lifeTime;
     private int atk;
 
     private void Start()
@@ -15,7 +16,11 @@ public class FireBallController : MonoBehaviour
     }
     private void Update()
     {
-        
+        lifeTime -= Time.deltaTime;
+        if(lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

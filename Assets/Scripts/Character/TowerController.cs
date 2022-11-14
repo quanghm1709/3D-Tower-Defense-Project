@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TowerController : CharacterCore, IBehavior
 {
-    [Header("Fire System")]
+    [Header("Attack System")]
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject fireBall;
     [SerializeField] private float fireballSpeed;
     private Collider[] enemyIn;
+    private GameObject[] multiEnemy;
     private void Update()
     {
         if (Detect())
@@ -18,6 +19,12 @@ public class TowerController : CharacterCore, IBehavior
     }
     public void Attack(int atk)
     {
+        Transform enemy = getClosetEnemy();
+        Vector3 lookDir = enemy.position - transform.position;
+        float angle = Vector3.Angle(transform.position, enemy.position);
+        firePoint.rotation = Quaternion.Euler(angle, 0, 0);
+        Debug.Log(angle);
+
         if (timeBtwHitCD <= 0)
         {
             var fireball = Instantiate(fireBall, firePoint.position, firePoint.rotation);
@@ -32,8 +39,8 @@ public class TowerController : CharacterCore, IBehavior
 
     public bool Detect()
     {
-        enemyIn = Physics.OverlapSphere(transform.position, detectRange);
-        if(enemyIn != null)
+        enemyIn = Physics.OverlapSphere(transform.position, detectRange, detectLayer);
+        if(enemyIn.Length != 0)
         {
             return true;
         }
@@ -71,4 +78,24 @@ public class TowerController : CharacterCore, IBehavior
     {
         throw new System.NotImplementedException();
     }
+    public Transform getClosetEnemy()
+    {
+        multiEnemy = GameObject.FindGameObjectsWithTag("Enemy");
+
+        float closetDistance = Mathf.Infinity;
+        Transform trans = null;
+
+        foreach (GameObject enemy in multiEnemy)
+        {
+            float currentDistance;
+            currentDistance = Vector3.Distance(transform.position, enemy.transform.position);
+            if (currentDistance < closetDistance)
+            {
+                closetDistance = currentDistance;
+                trans = enemy.transform;
+            }
+        }
+        return trans;
+    }
+
 }

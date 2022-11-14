@@ -32,6 +32,8 @@ public abstract class CharacterCore : MonoBehaviour
         currentHp = maxHp;
         currentSpeed = maxSpeed;
         currentAtk = maxAtk;
+
+
         timeBtwHitCD = timeBtwHit;
     }    
 }

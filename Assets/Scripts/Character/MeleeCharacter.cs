@@ -35,8 +35,15 @@ public class MeleeCharacter : CharacterCore, IBehavior
                 {
                     if (enemy.tag == "Enemy")
                     {
-                        Debug.Log(enemy.gameObject.name);
+                        //Debug.Log(enemy.gameObject.name);
                         enemy.gameObject.GetComponent<IBehavior>().GetDamage(atk);
+                    } else if(enemy.tag == "Player")
+                    {
+                        canMove = false;
+                    }
+                    else
+                    {
+                        canMove = true;
                     }
                 }
             }
@@ -97,7 +104,7 @@ public class MeleeCharacter : CharacterCore, IBehavior
 
     public void Moving()
     {
-        if (!Detect())
+        if (!Detect() && canMove)
         {
             if (isOwner)
             {

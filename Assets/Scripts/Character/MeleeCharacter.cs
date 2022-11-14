@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeCharacter : CharacterCore
+public class MeleeCharacter : CharacterCore, IBehavior
 {
+    [Header("Melee Combat")]
+    [SerializeField] private float range;
+    [SerializeField] private Transform hitPoint;
+
     private void Update()
     {
          
@@ -11,15 +15,51 @@ public class MeleeCharacter : CharacterCore
 
     private void FixedUpdate()
     {
-        Move();     
+        Moving();
+        if (Detect())
+        {          
+            Attack(currentAtk);
+        }
     }
 
-    public override void Attack(int atk)
+    public void Attack(int atk)
     {
-        throw new System.NotImplementedException();
+        
+        if(timeBtwHitCD <= 0)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(hitPoint.position, range);
+            anim.SetTrigger("Attack");
+            if (isOwner)
+            {
+                foreach (Collider enemy in hitColliders)
+                {
+                    if (enemy.tag == "Enemy")
+                    {
+                        Debug.Log(enemy.gameObject.name);
+                        enemy.gameObject.GetComponent<IBehavior>().GetDamage(atk);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Collider enemy in hitColliders)
+                {
+                    if (enemy.tag == "Player")
+                    {
+                        enemy.gameObject.GetComponent<IBehavior>().GetDamage(currentAtk);
+                    }
+                }
+            }
+            timeBtwHitCD = timeBtwHit;
+        }
+        else
+        {
+            timeBtwHitCD -= Time.deltaTime;
+        }
+       
     }
 
-    public override bool Detect()
+    public bool Detect()
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, detectRange, detectLayer))
@@ -34,12 +74,28 @@ public class MeleeCharacter : CharacterCore
         }
     }
 
-    public override void GetDamage(int damage)
+    public void GetDamage(int damage)
     {
-        throw new System.NotImplementedException();
+        currentHp -= damage;
+        if(currentHp <= 0)
+        {
+            Die();
+        }
     }
 
-    public override void Move()
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(hitPoint.position, range);
+    }
+
+    public void Idle()
+    {
+        rb.velocity = Vector3.zero;
+        anim.SetFloat("Move", 0);
+    }
+
+    public void Moving()
     {
         if (!Detect())
         {
@@ -52,13 +108,17 @@ public class MeleeCharacter : CharacterCore
                 rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, currentSpeed * Time.fixedDeltaTime);
             }
             anim.SetFloat("Move", Mathf.Abs(rb.velocity.z));
-            //anim.SetFloat("Move", Mathf.Abs(rb.velocity.x));
         }
         else
         {
-            rb.velocity = Vector3.zero;
-            anim.SetFloat("Move", 0);
-            anim.SetTrigger("Attack");
+            Idle();
         }
+    }
+
+    public void Die()
+    {
+        Collider c = GetComponent<Collider>();
+        c.isTrigger = true;
+        characterSprite.SetActive(false);
     }
 }

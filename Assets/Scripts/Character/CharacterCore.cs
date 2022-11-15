@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Sprites;
+using UnityEngine.AI;
 
 public abstract class CharacterCore : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public abstract class CharacterCore : MonoBehaviour
     [HideInInspector] public int currentSpeed;
 
     [Header("Detector")]
+    [SerializeField] public Detect detect;
     [SerializeField] public float detectRange;
     [SerializeField] public LayerMask detectLayer;
     [SerializeField] public float timeBtwHit;
@@ -36,6 +37,10 @@ public abstract class CharacterCore : MonoBehaviour
     [SerializeField] public float range;
     [SerializeField] public Transform hitPoint;
 
+    [Header("Moving")]
+    [SerializeField] public Transform movePos;
+    [SerializeField] public NavMeshAgent navMeshAgent;
+
     private void Start()
     {
         currentHp = maxHp;
@@ -44,6 +49,7 @@ public abstract class CharacterCore : MonoBehaviour
         timeBtwHitCD = timeBtwHit;
 
         _characterState = 0;
+        movePos = GameObject.Find("Enemy Tower").GetComponent<Transform>();
     }
 
     protected State State;
@@ -55,9 +61,11 @@ public abstract class CharacterCore : MonoBehaviour
     }
 
     public abstract void ChangeState(CharacterState troopState);
-    public abstract bool Detect();
+    public virtual bool Detect()
+    {
+        return detect.Detecting(detectRange, detectLayer);
+    }
     public virtual void SetTotalDamageToGet(int damage) {
         getDamage = damage;
-    }
-    
+    }  
 }

@@ -28,19 +28,10 @@ public class MeleeCharacter : CharacterCore
 
     public override bool Detect()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, detectRange, detectLayer))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * detectRange, Color.red);
-            return true;
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * detectRange, Color.blue);
-            return false;
-        }
+        return base.Detect();
     }
-    public virtual void SetTotalDamageToGet(int damage)
+
+    public override void SetTotalDamageToGet(int damage)
     {
         base.SetTotalDamageToGet(damage);
     }

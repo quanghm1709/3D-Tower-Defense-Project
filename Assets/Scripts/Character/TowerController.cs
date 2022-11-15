@@ -2,36 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerController : CharacterCore, IBehavior
+public class TowerController : CharacterCore
 {
     [Header("Attack System")]
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject fireBall;
-    [SerializeField] private float fireballSpeed;
     private Collider[] enemyIn;
     private GameObject[] multiEnemy;
+    [HideInInspector] public Transform closetEnemy;
     private void Update()
     {
+        closetEnemy = getClosetEnemy();
+        //var curState = GetState(_characterState);
+        //curState.Init(this);
+        //StartCoroutine(curState.Action());
         if (Detect())
         {
-            Attack(currentAtk);
-        } 
+            Attack();
+        }
     }
+
+    private State GetState(CharacterState characterState)
+    {
+        foreach (var state in states)
+        {
+            if (state.GetState() == characterState)
+                return state;
+        }
+        return null;
+    }
+
     public override void ChangeState(CharacterState characterState)
     {
         _characterState = characterState;
     }
-    public void Attack(int atk)
+    public void Attack()
     {
-        Transform enemy = getClosetEnemy();
-        Vector3 lookDir = enemy.position - transform.position;
-        float angle = Vector3.Angle(transform.position, enemy.position);
-        firePoint.rotation = Quaternion.Euler(angle, 0, 0);
-
         if (timeBtwHitCD <= 0)
         {
             var fireball = Instantiate(fireBall, firePoint.position, firePoint.rotation);
-            fireball.GetComponent<Rigidbody>().velocity = firePoint.forward * fireballSpeed;
             timeBtwHitCD = timeBtwHit;
         }
         else
@@ -57,33 +66,18 @@ public class TowerController : CharacterCore, IBehavior
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectRange);
     }
-    public void Die()
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public void GetDamage(int damage)
-    {
-        currentHp -= damage;
-    }
-
-    public void Idle()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Move()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Moving()
-    {
-        throw new System.NotImplementedException();
-    }
     public Transform getClosetEnemy()
     {
-        multiEnemy = GameObject.FindGameObjectsWithTag("Enemy");
+        if (isOwner)
+        {
+            multiEnemy = GameObject.FindGameObjectsWithTag("Enemy");
+        }
+        else
+        {
+            multiEnemy = GameObject.FindGameObjectsWithTag("Player");
+        }
+        
 
         float closetDistance = Mathf.Infinity;
         Transform trans = null;
@@ -100,5 +94,4 @@ public class TowerController : CharacterCore, IBehavior
         }
         return trans;
     }
-
 }

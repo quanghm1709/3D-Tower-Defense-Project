@@ -16,14 +16,15 @@ public class CharacterMove : State
         {
             if (_agent.isOwner)
             {
-                _agent.rb.velocity = new Vector3(_agent.rb.velocity.x, _agent.rb.velocity.y, -_agent.currentSpeed * Time.fixedDeltaTime);
+                //_agent.rb.velocity = new Vector3(_agent.rb.velocity.x, _agent.rb.velocity.y, -_agent.currentSpeed * Time.fixedDeltaTime);
+                _agent.navMeshAgent.destination = _agent.movePos.position;
             }
             else
             {
                 _agent.rb.velocity = new Vector3(_agent.rb.velocity.x, _agent.rb.velocity.y, _agent.currentSpeed * Time.fixedDeltaTime);
             }
             _agent.anim.SetBool("IsAttack", false);
-            _agent.anim.SetFloat("Move", Mathf.Abs(_agent.rb.velocity.z));
+            _agent.anim.SetFloat("Move", 1);
         }
         else
         {

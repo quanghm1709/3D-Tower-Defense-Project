@@ -469,6 +469,10 @@ MonoBehaviour:
   rb: {fileID: 180906923}
   anim: {fileID: 0}
   characterSprite: {fileID: 1792489298}
+  states: []
+  _characterState: 0
+  range: 0
+  hitPoint: {fileID: 0}
   firePoint: {fileID: 1276317332}
   fireBall: {fileID: 2424601806433190341, guid: 53109055c6518c648b1fffaf5cea1280,
     type: 3}
@@ -516,7 +520,7 @@ Transform:
   - {fileID: 81300653}
   - {fileID: 1276317332}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &227820813
 GameObject:
@@ -1028,7 +1032,7 @@ RectTransform:
   m_Children:
   - {fileID: 1265344120}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1236,6 +1240,10 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 0}
   characterSprite: {fileID: 0}
+  states: []
+  _characterState: 0
+  range: 0
+  hitPoint: {fileID: 0}
   firePoint: {fileID: 0}
   fireBall: {fileID: 0}
   fireballSpeed: 0
@@ -1406,163 +1414,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 13.056, y: 255.903, z: 1.762}
---- !u!1 &970511361
-GameObject:
+--- !u!1001 &1056229769
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 970511365}
-  - component: {fileID: 970511364}
-  - component: {fileID: 970511363}
-  - component: {fileID: 970511362}
-  m_Layer: 7
-  m_Name: Crocsoldier (1)
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &970511362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970511361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf25ebcd6dd216a4e94cb8f2b2c1bef3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: Crocsoldier
-  maxHp: 70
-  maxSpeed: 100
-  maxAtk: 0
-  isOwner: 0
-  canMove: 1
-  currentHp: 0
-  currentAtk: 0
-  currentSpeed: 0
-  detectRange: 4
-  detectLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  timeBtwHit: 0
-  timeBtwHitCD: 0
-  rb: {fileID: 970511364}
-  anim: {fileID: 987286221}
-  characterSprite: {fileID: 987286220}
-  range: 1.5
-  hitPoint: {fileID: 981341968}
---- !u!65 &970511363
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970511361}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.4739704, z: 1}
-  m_Center: {x: 0, y: 0.68222916, z: 0}
---- !u!54 &970511364
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970511361}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 0
---- !u!4 &970511365
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970511361}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93, y: 3.8, z: 30.95}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 987286222}
-  - {fileID: 981341968}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &981341967
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 981341968}
-  m_Layer: 6
-  m_Name: Hit Point (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &981341968
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981341967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.61, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 970511365}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &987286220 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5af9501d200034143b1c130c42d93829,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097622751}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &987286221
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 987286220}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 85c8dd5830433c6488c0c4a24330ed0d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &987286222 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097622751}
-  m_PrefabAsset: {fileID: 0}
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676365, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: timeBtwHit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972645419719676401, guid: ba5e9f0865e085847b8b245428c09a78,
+        type: 3}
+      propertyPath: m_Name
+      value: Crocsoldier
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba5e9f0865e085847b8b245428c09a78, type: 3}
 --- !u!1 &1069445939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,30 +1993,6 @@ Transform:
   m_Father: {fileID: 180906924}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1283719935 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 5af9501d200034143b1c130c42d93829,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097622751}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1283719937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283719935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0.056451797, a: 1}
-  outlineWidth: 3
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &1441681630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,97 +2513,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2097622751
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 970511365}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7635826562936255635, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bad6e3b80b649564eb643604d5a91914, type: 2}
-    - target: {fileID: 919132149155446097, guid: 5af9501d200034143b1c130c42d93829,
-        type: 3}
-      propertyPath: m_Name
-      value: Crocsoldier
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5af9501d200034143b1c130c42d93829, type: 3}
 --- !u!1 &2113878536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,81 +2610,11 @@ MonoBehaviour:
   rb: {fileID: 2113878539}
   anim: {fileID: 0}
   characterSprite: {fileID: 72441001}
+  states: []
+  _characterState: 0
+  range: 0
+  hitPoint: {fileID: 0}
   firePoint: {fileID: 22371538}
   fireBall: {fileID: 2424601806433190341, guid: 53109055c6518c648b1fffaf5cea1280,
     type: 3}
   fireballSpeed: 100
---- !u!1001 &2972645419799351470
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 45.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676401, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_Name
-      value: Crocsoldier
-      objectReference: {fileID: 0}
-    - target: {fileID: 2972645419719676401, guid: ba5e9f0865e085847b8b245428c09a78,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ba5e9f0865e085847b8b245428c09a78, type: 3}

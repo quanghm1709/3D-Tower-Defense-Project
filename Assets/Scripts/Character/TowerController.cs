@@ -17,13 +17,16 @@ public class TowerController : CharacterCore, IBehavior
             Attack(currentAtk);
         } 
     }
+    public override void ChangeState(CharacterState characterState)
+    {
+        _characterState = characterState;
+    }
     public void Attack(int atk)
     {
         Transform enemy = getClosetEnemy();
         Vector3 lookDir = enemy.position - transform.position;
         float angle = Vector3.Angle(transform.position, enemy.position);
         firePoint.rotation = Quaternion.Euler(angle, 0, 0);
-        Debug.Log(angle);
 
         if (timeBtwHitCD <= 0)
         {
@@ -37,7 +40,7 @@ public class TowerController : CharacterCore, IBehavior
         }
     }
 
-    public bool Detect()
+    public override bool Detect()
     {
         enemyIn = Physics.OverlapSphere(transform.position, detectRange, detectLayer);
         if(enemyIn.Length != 0)

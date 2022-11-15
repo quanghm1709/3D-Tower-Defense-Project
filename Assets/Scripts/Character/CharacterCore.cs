@@ -13,6 +13,7 @@ public abstract class CharacterCore : MonoBehaviour
     [SerializeField] public bool isOwner;
     [SerializeField] public bool canMove = true;
     public int currentHp;
+    [SerializeField] public int getDamage;
     [HideInInspector] public int currentAtk;
     [HideInInspector] public int currentSpeed;
 
@@ -27,13 +28,36 @@ public abstract class CharacterCore : MonoBehaviour
     [SerializeField] public Animator anim;
     [SerializeField] public GameObject characterSprite;
 
+    [Header("Behavior")]
+    [SerializeField] public List<State> states;
+    [HideInInspector] public CharacterState _characterState;
+
+    [Header("Melee Combat")]
+    [SerializeField] public float range;
+    [SerializeField] public Transform hitPoint;
+
     private void Start()
     {
         currentHp = maxHp;
         currentSpeed = maxSpeed;
         currentAtk = maxAtk;
-
-
         timeBtwHitCD = timeBtwHit;
-    }    
+
+        _characterState = 0;
+    }
+
+    protected State State;
+
+    public void SetState(State state)
+    {
+        State = state;
+        State.Action();
+    }
+
+    public abstract void ChangeState(CharacterState troopState);
+    public abstract bool Detect();
+    public virtual void SetTotalDamageToGet(int damage) {
+        getDamage = damage;
+    }
+    
 }

@@ -124,6 +124,12 @@ MonoBehaviour:
   rb: {fileID: 2972645419719676367}
   anim: {fileID: 2972645418191167651}
   characterSprite: {fileID: 2702613410216769607}
+  states:
+  - {fileID: 7550095060762107189, guid: 10a920cd764a3f1458435a30eb15ddd3, type: 3}
+  - {fileID: 5964487546493607919, guid: 50d8b52252195554ba03039db0ca47dc, type: 3}
+  - {fileID: 7188088856373939415, guid: 67194c952efbdfd4e99c3ea04d8600c9, type: 3}
+  - {fileID: 535760806462643277, guid: a4c3fd96b9ffb6643a19568928242f3e, type: 3}
+  _characterState: 0
   range: 1.5
   hitPoint: {fileID: 2972645418862530950}
 --- !u!1001 &2972645418906699030

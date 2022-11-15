@@ -2,76 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeCharacter : CharacterCore, IBehavior
+public class MeleeCharacter : CharacterCore
 {
-    [Header("Melee Combat")]
-    [SerializeField] private float range;
-    [SerializeField] private Transform hitPoint;
-
     private void Update()
     {
-         
+        var curState = GetState(_characterState);
+        curState.Init(this);
+        StartCoroutine(curState.Action());
     }
 
-    private void FixedUpdate()
+    private State GetState(CharacterState characterState)
     {
-        
-        if (Detect())
+        foreach (var state in states)
         {
-            canMove = false;
-            Attack(currentAtk);
+            if (state.GetState() == characterState)
+                return state;
         }
-        else
-        {
-            canMove = true;
-            Moving();
-        }
+        return null;
     }
 
-    public void Attack(int atk)
+    public override void ChangeState(CharacterState characterState)
     {
-        
-        if(timeBtwHitCD <= 0)
-        {
-            Collider[] hitColliders = Physics.OverlapSphere(hitPoint.position, range);
-            anim.SetTrigger("Attack");
-            if (isOwner)
-            {
-                foreach (Collider enemy in hitColliders)
-                {
-                    if (enemy.tag == "Enemy")
-                    {
-                        enemy.gameObject.GetComponent<IBehavior>().GetDamage(atk);
-                    } else if(enemy.tag == "Player")
-                    {
-                        canMove = false;
-                    }
-                    else
-                    {
-                        canMove = true;
-                    }
-                }
-            }
-            else
-            {
-                foreach (Collider enemy in hitColliders)
-                {
-                    if (enemy.tag == "Player")
-                    {
-                        enemy.gameObject.GetComponent<IBehavior>().GetDamage(currentAtk);
-                    }
-                }
-            }
-            timeBtwHitCD = timeBtwHit;
-        }
-        else
-        {
-            timeBtwHitCD -= Time.deltaTime;
-        }
-       
+        _characterState = characterState;
     }
 
-    public bool Detect()
+    public override bool Detect()
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, detectRange, detectLayer))
@@ -85,52 +40,8 @@ public class MeleeCharacter : CharacterCore, IBehavior
             return false;
         }
     }
-
-    public void GetDamage(int damage)
+    public virtual void SetTotalDamageToGet(int damage)
     {
-        currentHp -= damage;
-        if(currentHp <= 0)
-        {
-            Die();
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(hitPoint.position, range);
-    }
-
-    public void Idle()
-    {
-        rb.velocity = Vector3.zero;
-        anim.SetFloat("Move", 0);
-    }
-
-    public void Moving()
-    {
-        if (!Detect() && canMove)
-        {
-            if (isOwner)
-            {
-                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -currentSpeed * Time.fixedDeltaTime);
-            }
-            else
-            {
-                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, currentSpeed * Time.fixedDeltaTime);
-            }
-            anim.SetFloat("Move", Mathf.Abs(rb.velocity.z));
-        }
-        else
-        {
-            Idle();
-        }
-    }
-
-    public void Die()
-    {
-        Collider c = GetComponent<Collider>();
-        c.isTrigger = true;
-        characterSprite.SetActive(false);
+        base.SetTotalDamageToGet(damage);
     }
 }

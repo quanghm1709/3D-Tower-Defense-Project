@@ -9,6 +9,8 @@ public class MeleeCharacter : CharacterCore
         var curState = GetState(_characterState);
         curState.Init(this);
         StartCoroutine(curState.Action());
+
+        navMeshAgent.speed = currentSpeed;
     }
 
     private State GetState(CharacterState characterState)
@@ -34,5 +36,11 @@ public class MeleeCharacter : CharacterCore
     public override void SetTotalDamageToGet(int damage)
     {
         base.SetTotalDamageToGet(damage);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(hitPoint.position, range);
     }
 }

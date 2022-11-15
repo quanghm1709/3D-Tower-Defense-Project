@@ -12,6 +12,7 @@ public abstract class CharacterCore : MonoBehaviour
     [SerializeField] public int maxAtk;
     [SerializeField] public bool isOwner;
     [SerializeField] public bool canMove = true;
+    [SerializeField] public bool isBuilding;
     public int currentHp;
     [SerializeField] public int getDamage;
     [HideInInspector] public int currentAtk;
@@ -47,10 +48,10 @@ public abstract class CharacterCore : MonoBehaviour
         currentSpeed = maxSpeed;
         currentAtk = maxAtk;
         timeBtwHitCD = timeBtwHit;
-
+        
         _characterState = 0;
-        movePos = GameObject.Find("Enemy Tower").GetComponent<Transform>();
     }
+        
 
     protected State State;
 

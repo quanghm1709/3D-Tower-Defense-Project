@@ -7,6 +7,7 @@ public class TowerController : CharacterCore
     [Header("Attack System")]
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject fireBall;
+    [SerializeField] public Transform enemyPoint;
     private Collider[] enemyIn;
     private GameObject[] multiEnemy;
     [HideInInspector] public Transform closetEnemy;

@@ -12,17 +12,32 @@ public class CharacterMove : State
     public override IEnumerator Action()
     {
         base.Action();
+
+        TowerController tower;
+        TowerController enemyTower;
+        if (_agent.isOwner)
+        {
+            tower = GameObject.Find("My Tower").GetComponent<TowerController>();
+            enemyTower = GameObject.Find("Enemy Tower").GetComponent<TowerController>();
+        }
+        else
+        {
+            tower = GameObject.Find("Enemy Tower").GetComponent<TowerController>();
+            enemyTower = GameObject.Find("My Tower").GetComponent<TowerController>();
+        }
+
+        if(tower.closetEnemy == null)
+        {
+            _agent.movePos = enemyTower.enemyPoint;
+        }
+        else
+        {
+            _agent.movePos = tower.closetEnemy;
+        }
+
         if (!_agent.Detect() && _agent.canMove)
         {
-            if (_agent.isOwner)
-            {
-                //_agent.rb.velocity = new Vector3(_agent.rb.velocity.x, _agent.rb.velocity.y, -_agent.currentSpeed * Time.fixedDeltaTime);
-                _agent.navMeshAgent.destination = _agent.movePos.position;
-            }
-            else
-            {
-                _agent.rb.velocity = new Vector3(_agent.rb.velocity.x, _agent.rb.velocity.y, _agent.currentSpeed * Time.fixedDeltaTime);
-            }
+            _agent.navMeshAgent.destination = _agent.movePos.position;
             _agent.anim.SetBool("IsAttack", false);
             _agent.anim.SetFloat("Move", 1);
         }

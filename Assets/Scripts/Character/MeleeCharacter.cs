@@ -42,5 +42,9 @@ public class MeleeCharacter : CharacterCore
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(hitPoint.position, range);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, detectRange+3);
     }
 }

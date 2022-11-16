@@ -974,27 +974,30 @@ MonoBehaviour:
   getDamage: 0
   currentAtk: 0
   currentSpeed: 0
-  detect: {fileID: 0}
+  detect: {fileID: 825336308}
   detectRange: 7
   detectLayer:
     serializedVersion: 2
     m_Bits: 64
   timeBtwHit: 1
+  enemyIn: []
+  multiEnemy: []
   timeBtwHitCD: 0
+  closetEnemy: {fileID: 0}
   rb: {fileID: 180906923}
   anim: {fileID: 0}
   characterSprite: {fileID: 1792489298}
   states: []
   _characterState: 0
-  range: 0
-  hitPoint: {fileID: 0}
   movePos: {fileID: 0}
   navMeshAgent: {fileID: 180906925}
+  range: 0
+  hitPoint: {fileID: 0}
+  rangeRange: 0
   firePoint: {fileID: 1276317332}
   fireBall: {fileID: 8600115804976754139, guid: 9694ac4c486b0d0478c60f4ae324bad8,
     type: 3}
   enemyPoint: {fileID: 1999177189}
-  closetEnemy: {fileID: 0}
 --- !u!135 &180906922
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1032,12 +1035,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180906920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.37, y: 1.01, z: 6.32}
+  m_LocalPosition: {x: -27.37, y: 1.01, z: 6.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 81300653}
   - {fileID: 1276317332}
   - {fileID: 1999177189}
+  - {fileID: 825336309}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4338,6 +4342,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 808716350}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &825336307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825336309}
+  - component: {fileID: 825336308}
+  m_Layer: 6
+  m_Name: Detect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &825336308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825336307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933456b2292384644ae59825fb2555ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &825336309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825336307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 180906924}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &826508323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4721,20 +4768,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   timeBtwHit: 0
+  enemyIn: []
+  multiEnemy: []
   timeBtwHitCD: 0
+  closetEnemy: {fileID: 0}
   rb: {fileID: 0}
   anim: {fileID: 0}
   characterSprite: {fileID: 0}
   states: []
   _characterState: 0
-  range: 0
-  hitPoint: {fileID: 0}
   movePos: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  range: 0
+  hitPoint: {fileID: 0}
+  rangeRange: 0
   firePoint: {fileID: 0}
   fireBall: {fileID: 0}
   enemyPoint: {fileID: 0}
-  closetEnemy: {fileID: 0}
 --- !u!1001 &835889263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6402,7 +6452,7 @@ PrefabInstance:
     - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.73
+      value: -31.91
       objectReference: {fileID: 0}
     - target: {fileID: 2972645419719676364, guid: ba5e9f0865e085847b8b245428c09a78,
         type: 3}
@@ -11392,6 +11442,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1950796614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1960193072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960193073}
+  - component: {fileID: 1960193074}
+  m_Layer: 6
+  m_Name: Detect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960193073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960193072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2113878537}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1960193074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960193072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933456b2292384644ae59825fb2555ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1974285070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12283,6 +12376,7 @@ Transform:
   - {fileID: 1840687997}
   - {fileID: 22371538}
   - {fileID: 1386780524}
+  - {fileID: 1960193073}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12338,27 +12432,30 @@ MonoBehaviour:
   getDamage: 0
   currentAtk: 0
   currentSpeed: 0
-  detect: {fileID: 0}
+  detect: {fileID: 1960193074}
   detectRange: 7
   detectLayer:
     serializedVersion: 2
     m_Bits: 128
   timeBtwHit: 1
+  enemyIn: []
+  multiEnemy: []
   timeBtwHitCD: 0
+  closetEnemy: {fileID: 0}
   rb: {fileID: 2113878539}
   anim: {fileID: 0}
   characterSprite: {fileID: 72441001}
   states: []
   _characterState: 0
-  range: 0
-  hitPoint: {fileID: 0}
   movePos: {fileID: 0}
   navMeshAgent: {fileID: 2113878541}
+  range: 0
+  hitPoint: {fileID: 0}
+  rangeRange: 0
   firePoint: {fileID: 22371538}
   fireBall: {fileID: 2424601806433190341, guid: 53109055c6518c648b1fffaf5cea1280,
     type: 3}
   enemyPoint: {fileID: 1386780524}
-  closetEnemy: {fileID: 0}
 --- !u!195 &2113878541
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12569,7 +12666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989507353303289115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.87, y: 3.8, z: 12.06}
+  m_LocalPosition: {x: -34.35, y: 3.8, z: 13.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1989507354099358206}
@@ -12595,7 +12692,7 @@ MonoBehaviour:
   maxSpeed: 10
   maxAtk: 20
   isOwner: 0
-  canMove: 1
+  canMove: 0
   isBuilding: 0
   currentHp: 0
   getDamage: 0
@@ -12607,7 +12704,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   timeBtwHit: 1
+  enemyIn: []
+  multiEnemy: []
   timeBtwHitCD: 0
+  closetEnemy: {fileID: 0}
   rb: {fileID: 1989507353303289125}
   anim: {fileID: 1989507354387086409}
   characterSprite: {fileID: 1989507354099358205}
@@ -12618,10 +12718,11 @@ MonoBehaviour:
   - {fileID: 535760806462643277, guid: a4c3fd96b9ffb6643a19568928242f3e, type: 3}
   - {fileID: 5254474091996050639, guid: fc6210f0dc3ea8a4d9af6865beb67c69, type: 3}
   _characterState: 0
-  range: 1.5
-  hitPoint: {fileID: 1989507353984142700}
   movePos: {fileID: 0}
   navMeshAgent: {fileID: 3665036365105340987}
+  range: 1.5
+  hitPoint: {fileID: 1989507353984142700}
+  rangeRange: 0
 --- !u!114 &1989507353888296149
 MonoBehaviour:
   m_ObjectHideFlags: 0

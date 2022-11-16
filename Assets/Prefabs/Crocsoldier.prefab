@@ -140,10 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Crocsoldier
   maxHp: 70
-  maxSpeed: 10
+  maxSpeed: 5
   maxAtk: 20
   isOwner: 1
   canMove: 1
+  isBuilding: 0
   currentHp: 0
   getDamage: 0
   currentAtk: 0
@@ -154,7 +155,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   timeBtwHit: 1
+  enemyIn: []
+  multiEnemy: []
   timeBtwHitCD: 0
+  closetEnemy: {fileID: 0}
   rb: {fileID: 2972645419719676367}
   anim: {fileID: 2972645418191167651}
   characterSprite: {fileID: 2702613410216769607}
@@ -165,10 +169,11 @@ MonoBehaviour:
   - {fileID: 535760806462643277, guid: a4c3fd96b9ffb6643a19568928242f3e, type: 3}
   - {fileID: 5254474091996050639, guid: fc6210f0dc3ea8a4d9af6865beb67c69, type: 3}
   _characterState: 0
-  range: 1.5
-  hitPoint: {fileID: 2972645418862530950}
   movePos: {fileID: 0}
   navMeshAgent: {fileID: 348192465}
+  range: 1.5
+  hitPoint: {fileID: 2972645418862530950}
+  rangeRange: 0
 --- !u!195 &348192465
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -23,7 +23,10 @@ public abstract class CharacterCore : MonoBehaviour
     [SerializeField] public float detectRange;
     [SerializeField] public LayerMask detectLayer;
     [SerializeField] public float timeBtwHit;
+    [SerializeField] public Collider[] enemyIn;
+    [SerializeField] public GameObject[] multiEnemy;
     [HideInInspector] public float timeBtwHitCD;
+    [HideInInspector] public Transform closetEnemy;
 
     [Header("Component")]
     [SerializeField] public Rigidbody rb;
@@ -34,20 +37,22 @@ public abstract class CharacterCore : MonoBehaviour
     [SerializeField] public List<State> states;
     [HideInInspector] public CharacterState _characterState;
 
+    [Header("Moving")]
+    [SerializeField] public Transform movePos;
+    [SerializeField] public NavMeshAgent navMeshAgent;
+
     [Header("Melee Combat")]
     [SerializeField] public float range;
     [SerializeField] public Transform hitPoint;
 
-    [Header("Moving")]
-    [SerializeField] public Transform movePos;
-    [SerializeField] public NavMeshAgent navMeshAgent;
+    [Header("Range Combat")]
+    [SerializeField] public float rangeRange;
 
     private void Start()
     {
         currentHp = maxHp;
         currentSpeed = maxSpeed;
         currentAtk = maxAtk;
-        timeBtwHitCD = timeBtwHit;
         
         _characterState = 0;
     }
@@ -55,16 +60,14 @@ public abstract class CharacterCore : MonoBehaviour
 
     protected State State;
 
-    public void SetState(State state)
-    {
-        State = state;
-        State.Action();
-    }
-
     public abstract void ChangeState(CharacterState troopState);
     public virtual bool Detect()
     {
         return detect.Detecting(detectRange, detectLayer);
+    }
+    public virtual Transform ClosetEnemy()
+    {
+        return detect.GetClosetEnemy(detectRange, detectLayer);
     }
     public virtual void SetTotalDamageToGet(int damage) {
         getDamage = damage;

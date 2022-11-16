@@ -8,12 +8,11 @@ public class TowerController : CharacterCore
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject fireBall;
     [SerializeField] public Transform enemyPoint;
-    private Collider[] enemyIn;
-    private GameObject[] multiEnemy;
-    [HideInInspector] public Transform closetEnemy;
+    
+    
     private void Update()
     {
-        closetEnemy = getClosetEnemy();
+        closetEnemy = ClosetEnemy();
         //var curState = GetState(_characterState);
         //curState.Init(this);
         //StartCoroutine(curState.Action());
@@ -52,15 +51,7 @@ public class TowerController : CharacterCore
 
     public override bool Detect()
     {
-        enemyIn = Physics.OverlapSphere(transform.position, detectRange, detectLayer);
-        if(enemyIn.Length != 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;   
-        }
+        return base.Detect();
     }
     private void OnDrawGizmos()
     {
@@ -68,31 +59,8 @@ public class TowerController : CharacterCore
         Gizmos.DrawWireSphere(transform.position, detectRange);
     }
 
-    public Transform getClosetEnemy()
+    public override Transform ClosetEnemy()
     {
-        if (isOwner)
-        {
-            multiEnemy = GameObject.FindGameObjectsWithTag("Enemy");
-        }
-        else
-        {
-            multiEnemy = GameObject.FindGameObjectsWithTag("Player");
-        }
-        
-
-        float closetDistance = Mathf.Infinity;
-        Transform trans = null;
-
-        foreach (GameObject enemy in multiEnemy)
-        {
-            float currentDistance;
-            currentDistance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (currentDistance < closetDistance)
-            {
-                closetDistance = currentDistance;
-                trans = enemy.transform;
-            }
-        }
-        return trans;
+        return base.ClosetEnemy();
     }
 }

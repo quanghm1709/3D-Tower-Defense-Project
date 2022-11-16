@@ -14,29 +14,18 @@ public class CharacterMove : State
         base.Action();
 
         TowerController tower;
-        TowerController enemyTower;
-        if (_agent.isOwner)
-        {
-            tower = GameObject.Find("My Tower").GetComponent<TowerController>();
-            enemyTower = GameObject.Find("Enemy Tower").GetComponent<TowerController>();
-        }
-        else
-        {
-            tower = GameObject.Find("Enemy Tower").GetComponent<TowerController>();
-            enemyTower = GameObject.Find("My Tower").GetComponent<TowerController>();
-        }
-
-        if(tower.closetEnemy == null)
-        {
-            _agent.movePos = enemyTower.enemyPoint;
-        }
-        else
-        {
-            _agent.movePos = tower.closetEnemy;
-        }
 
         if (!_agent.Detect() && _agent.canMove)
         {
+            if (!_agent.isOwner)
+            {
+                tower = GameObject.Find("My Tower").GetComponent<TowerController>();              
+            }
+            else
+            {
+                tower = GameObject.Find("Enemy Tower").GetComponent<TowerController>();        
+            }
+            _agent.movePos = tower.enemyPoint;
             _agent.navMeshAgent.destination = _agent.movePos.position;
             _agent.anim.SetBool("IsAttack", false);
             _agent.anim.SetFloat("Move", 1);

@@ -30,7 +30,7 @@ public class Detect : MonoBehaviour
             {
                 float currentDistance;
                 currentDistance = Vector3.Distance(transform.position, enemy.transform.position);
-                if (currentDistance < closetDistance)
+                if (currentDistance < closetDistance && enemy.GetComponent<Core>().currentHp>0)
                 {
                     closetDistance = currentDistance;
                     trans = enemy.transform;

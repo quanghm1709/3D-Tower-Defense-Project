@@ -15,6 +15,7 @@ public class TowerController : Core
 
     private void Update()
     {
+
         var curState = GetState(_towerState);
         curState.Init(this);
         curState.Action();

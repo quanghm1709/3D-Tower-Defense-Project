@@ -8,6 +8,7 @@ public abstract class CharacterCore : Core
     [Header("Component")]
     [SerializeField] public Rigidbody rb;
     [SerializeField] public Animator anim;
+    [SerializeField] public Collider col;
     
     [Header("Moving")]
     [SerializeField] public Transform movePos;

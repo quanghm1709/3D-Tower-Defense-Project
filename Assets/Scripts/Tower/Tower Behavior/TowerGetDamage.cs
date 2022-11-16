@@ -15,7 +15,9 @@ public class TowerGetDamage : TowerStates
         _agent.currentHp -= _agent.getDamage;
         if (_agent.currentHp <= 0)
         {
-            _agent.characterSprite.SetActive(false);
+            UIController.instance.winPanel.SetActive(true);
+            Time.timeScale = 0;
+            //_agent.characterSprite.SetActive(false);
         }
         else
         {

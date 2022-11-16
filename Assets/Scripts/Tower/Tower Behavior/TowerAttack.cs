@@ -15,15 +15,22 @@ public class TowerAttack : TowerStates
         if (_agent.Detect())
         {
             _agent.closetEnemy = _agent.ClosetEnemy();
-            if (_agent.timeBtwHitCD <= 0)
+            if(_agent.closetEnemy == null)
             {
-                var fireball = Instantiate(_agent.fireBall, _agent.firePoint.position, _agent.firePoint.rotation);
-                _agent.timeBtwHitCD = _agent.timeBtwHit;
+                _agent.ChangeState(TowerState.Idle);
             }
             else
             {
-                _agent.timeBtwHitCD -= Time.deltaTime;
-            }
+                if (_agent.timeBtwHitCD <= 0)
+                {
+                    var fireball = Instantiate(_agent.fireBall, _agent.firePoint.position, _agent.firePoint.rotation);
+                    _agent.timeBtwHitCD = _agent.timeBtwHit;
+                }
+                else
+                {
+                    _agent.timeBtwHitCD -= Time.deltaTime;
+                }
+            }       
         }
         else
         {

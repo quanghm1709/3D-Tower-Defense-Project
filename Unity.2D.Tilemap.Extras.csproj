@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A386F1B9-5C37-274D-FB53-0A3541E37C0B}</ProjectGuid>
+    <ProjectGuid>{3B6788F4-AFCE-271B-E61D-CC0A1C085947}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Tilemap.Extras</AssemblyName>
@@ -56,22 +56,22 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\WeightedRandomTile\WeightedRandomTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\GridInformation\GridInformation.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\TerrainTile\TerrainTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\RuleTile\RuleTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Brushes\TintTextureGenerator.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\PipelineTile\PipelineTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\HexagonalRuleTile\HexagonalRuleTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\IsometricRuleTile\IsometricRuleTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\RandomTile\RandomTile.cs" />
-    <Compile Include="2d-extras-2020.3\Runtime\Tiles\RuleOverrideTile\RuleOverrideTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\RuleTile\RuleTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Brushes\TintTextureGenerator.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\PipelineTile\PipelineTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\HexagonalRuleTile\HexagonalRuleTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\IsometricRuleTile\IsometricRuleTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\RuleOverrideTile\RuleOverrideTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\RandomTile\RandomTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\WeightedRandomTile\WeightedRandomTile.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\GridInformation\GridInformation.cs" />
+    <Compile Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Tiles\TerrainTile\TerrainTile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="2d-extras-2020.3\Runtime\Unity.2D.Tilemap.Extras.asmdef" />
-    <None Include="2d-extras-2020.3\Runtime\Brushes\TintedTilemap.shader" />
+    <None Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Unity.2D.Tilemap.Extras.asmdef" />
+    <None Include="D:\Unity\3D TD Project\2d-extras-2020.3\Runtime\Brushes\TintedTilemap.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

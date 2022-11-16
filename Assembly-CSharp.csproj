@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2E941051-1692-E5CC-03A6-D4854AFA2B91}</ProjectGuid>
+    <ProjectGuid>{93C3854D-DD7B-FA17-5F1C-81E0C442A924}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,28 +56,33 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterIdle.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior.cs" />
-    <Compile Include="Assets\Scripts\Detect.cs" />
     <Compile Include="Assets\Scripts\UI\UIController.cs" />
-    <Compile Include="Assets\Scripts\FireBallController.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterCore.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterGetDamage.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterMove.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterAttack.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterBehavior\State.cs" />
-    <Compile Include="Assets\Scripts\Character\MeleeCharacter.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Detect.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterDead.cs" />
-    <Compile Include="Assets\Scripts\Character\TowerController.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterCore.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Character\MeleeCharacter.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterAttack.cs" />
+    <Compile Include="Assets\Scripts\FireBallController.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterGetDamage.cs" />
+    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterBehavior\State.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\GetCloseEnemy.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterMove.cs" />
+    <Compile Include="Assets\Scripts\Character\TowerController.cs" />
+    <Compile Include="Assets\Scripts\Core.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerStates.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerIdle.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerAttack.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerGetDamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
-    <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
+    <None Include="Assets\QuickOutline\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -650,20 +655,11 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Notifications">
-      <HintPath>Library\ScriptAssemblies\Unity.Notifications.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -686,20 +682,17 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Notifications.Android">
-      <HintPath>Library\ScriptAssemblies\Unity.Notifications.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Notifications.iOS">
-      <HintPath>Library\ScriptAssemblies\Unity.Notifications.iOS.dll</HintPath>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
-      <Project>{A386F1B9-5C37-274D-FB53-0A3541E37C0B}</Project>
+      <Project>{3B6788F4-AFCE-271B-E61D-CC0A1C085947}</Project>
       <Name>Unity.2D.Tilemap.Extras</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
-      <Project>{D03B5235-A6E2-56DE-5926-F6A1D39C22C8}</Project>
+      <Project>{247AE75B-8DC8-E830-198F-F37A397BA18C}</Project>
       <Name>Unity.2D.Tilemap.Extras.Editor</Name>
     </ProjectReference>
   </ItemGroup>

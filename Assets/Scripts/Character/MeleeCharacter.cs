@@ -10,7 +10,7 @@ public class MeleeCharacter : CharacterCore
         curState.Init(this);
         StartCoroutine(curState.Action());
 
-        navMeshAgent.speed = currentSpeed;
+        navMeshAgent.speed = speed;
     }
 
     private State GetState(CharacterState characterState)

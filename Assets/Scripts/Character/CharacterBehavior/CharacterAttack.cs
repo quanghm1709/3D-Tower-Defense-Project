@@ -25,10 +25,10 @@ public class CharacterAttack : State
                 {
                     foreach (Collider enemy in hitColliders)
                     {
-                        if (!enemy.gameObject.GetComponent<CharacterCore>().isOwner)
+                        if (!enemy.gameObject.GetComponent<Core>().isOwner)
                         {
-                            enemy.gameObject.GetComponent<CharacterCore>().SetTotalDamageToGet(_agent.currentAtk);
-                            enemy.gameObject.GetComponent<CharacterCore>().ChangeState(CharacterState.GetDamage);
+                            enemy.gameObject.GetComponent<Core>().SetTotalDamageToGet(_agent.currentAtk);
+                            enemy.gameObject.GetComponent<TowerController>().ChangeState(TowerState.GetDamage);
                         }
                         else if (enemy.tag == "Player")
                         {
@@ -44,10 +44,10 @@ public class CharacterAttack : State
                 {
                     foreach (Collider enemy in hitColliders)
                     {
-                        if (enemy.gameObject.GetComponent<CharacterCore>().isOwner)
+                        if (enemy.gameObject.GetComponent<Core>().isOwner)
                         {
-                            enemy.gameObject.GetComponent<CharacterCore>().SetTotalDamageToGet(_agent.currentAtk);
-                            enemy.gameObject.GetComponent<CharacterCore>().ChangeState(CharacterState.GetDamage);
+                            enemy.gameObject.GetComponent<Core>().SetTotalDamageToGet(_agent.currentAtk);
+                            //enemy.gameObject.GetComponent<Core>().ChangeState(CharacterState.GetDamage);
                         }
                     }
                 }

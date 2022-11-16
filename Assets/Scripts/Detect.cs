@@ -10,12 +10,10 @@ public class Detect : MonoBehaviour
         Collider[] enemyIn = Physics.OverlapSphere(transform.position, detectRange, detectLayer);
         if(enemyIn.Length > 0)
         {
-            Debug.Log(enemyIn.Length);
             return true;
         }
         else
         {
-            Debug.Log(enemyIn.Length);
             return false;
         }
     }

@@ -2,65 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerController : CharacterCore
+public class TowerController : Core
 {
     [Header("Attack System")]
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject fireBall;
+    [SerializeField] public Transform firePoint;
+    [SerializeField] public GameObject fireBall;
     [SerializeField] public Transform enemyPoint;
-    
-    
+
+    [Header("Behavior")]
+    [SerializeField] public List<TowerStates> states;
+    [SerializeField] public TowerState _towerState;
+
     private void Update()
     {
-        closetEnemy = ClosetEnemy();
-        //var curState = GetState(_characterState);
-        //curState.Init(this);
-        //StartCoroutine(curState.Action());
-        if (Detect())
-        {
-            Attack();
-        }
+        var curState = GetState(_towerState);
+        curState.Init(this);
+        curState.Action();
     }
 
-    private State GetState(CharacterState characterState)
+    private TowerStates GetState(TowerState towerState)
     {
         foreach (var state in states)
         {
-            if (state.GetState() == characterState)
+            if (state.GetState() == _towerState)
                 return state;
         }
         return null;
     }
 
-    public override void ChangeState(CharacterState characterState)
+    public void ChangeState(TowerState towerState)
     {
-        _characterState = characterState;
-    }
-    public void Attack()
-    {
-        if (timeBtwHitCD <= 0)
-        {
-            var fireball = Instantiate(fireBall, firePoint.position, firePoint.rotation);
-            timeBtwHitCD = timeBtwHit;
-        }
-        else
-        {
-            timeBtwHitCD -= Time.deltaTime;
-        }
-    }
-
-    public override bool Detect()
-    {
-        return base.Detect();
+        _towerState = towerState;
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectRange);
-    }
-
-    public override Transform ClosetEnemy()
-    {
-        return base.ClosetEnemy();
     }
 }

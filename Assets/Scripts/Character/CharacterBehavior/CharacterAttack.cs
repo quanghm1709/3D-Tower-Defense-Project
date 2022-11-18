@@ -8,7 +8,7 @@ public class CharacterAttack : State
     {
         return CharacterState.Attack;
     }
-    public override IEnumerator Action()
+    public override void Action()
     {
         base.Action();
         
@@ -64,6 +64,5 @@ public class CharacterAttack : State
         {
             _agent.ChangeState(CharacterState.Moving);
         }
-        yield break;
     }
 }

@@ -9,12 +9,11 @@ public class CharacterIdle : State
     {
         return CharacterState.Idle;
     }
-    public override IEnumerator Action()
+    public override void Action()
     {
         base.Action();
         _agent.rb.velocity = Vector3.zero;
         _agent.anim.SetFloat("Move", 0);
-        yield return new WaitForSeconds(.5f);
         _agent.ChangeState(CharacterState.Moving);
     }
 }

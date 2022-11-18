@@ -9,7 +9,7 @@ public class CharacterGetDamage : State
         return CharacterState.GetDamage;
     }
 
-    public override IEnumerator Action()
+    public override void Action()
     {
         base.Action();
         _agent.currentHp -= _agent.getDamage;
@@ -21,7 +21,6 @@ public class CharacterGetDamage : State
         {
             _agent.ChangeState(CharacterState.Attack);
         }
-        yield break;
     }
 
 }

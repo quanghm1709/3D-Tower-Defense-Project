@@ -44588,7 +44588,7 @@ GameObject:
   - component: {fileID: 972079700}
   m_Layer: 0
   m_Name: Ground Blue Site (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -96896,6 +96896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crocsoldier
       objectReference: {fileID: 0}
+    - target: {fileID: 1605891561892416439, guid: e37c626b192ec604ba9716cce5436a3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6047090107561473270, guid: e37c626b192ec604ba9716cce5436a3e,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -96927,7 +96932,7 @@ GameObject:
   - component: {fileID: 7041043375737421744}
   m_Layer: 0
   m_Name: Ground Blue Site
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -97553,7 +97558,7 @@ GameObject:
   - component: {fileID: 7041043376270789031}
   m_Layer: 0
   m_Name: Bridge (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97733,7 +97738,7 @@ GameObject:
   - component: {fileID: 7041043377075555431}
   m_Layer: 0
   m_Name: River
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

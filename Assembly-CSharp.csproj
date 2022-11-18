@@ -59,7 +59,9 @@
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterIdle.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\UIController.cs" />
+    <Compile Include="Assets\Scripts\Core.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerGetDamage.cs" />
     <Compile Include="Assets\Scripts\Detect.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterDead.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterCore.cs" />
@@ -69,15 +71,13 @@
     <Compile Include="Assets\Scripts\FireBallController.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterGetDamage.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerAttack.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerIdle.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerStates.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\State.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\GetCloseEnemy.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterBehavior\CharacterMove.cs" />
     <Compile Include="Assets\Scripts\Character\TowerController.cs" />
-    <Compile Include="Assets\Scripts\Core.cs" />
-    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerStates.cs" />
-    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerIdle.cs" />
-    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerAttack.cs" />
-    <Compile Include="Assets\Scripts\Tower\Tower Behavior\TowerGetDamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
@@ -682,19 +682,8 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
-      <Project>{3B6788F4-AFCE-271B-E61D-CC0A1C085947}</Project>
-      <Name>Unity.2D.Tilemap.Extras</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
-      <Project>{247AE75B-8DC8-E830-198F-F37A397BA18C}</Project>
-      <Name>Unity.2D.Tilemap.Extras.Editor</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

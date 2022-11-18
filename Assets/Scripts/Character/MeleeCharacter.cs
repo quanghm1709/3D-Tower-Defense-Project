@@ -8,7 +8,7 @@ public class MeleeCharacter : CharacterCore
     {
         var curState = GetState(_characterState);
         curState.Init(this);
-        StartCoroutine(curState.Action());
+        curState.Action();
 
         navMeshAgent.speed = speed;
     }

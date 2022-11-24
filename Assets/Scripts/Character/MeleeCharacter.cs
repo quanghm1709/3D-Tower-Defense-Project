@@ -11,6 +11,14 @@ public class MeleeCharacter : CharacterCore
         curState.Action();
 
         navMeshAgent.speed = speed;
+        if (!GameManager.instance.startBattle)
+        {
+            canMove = false;
+        }
+        else
+        {
+            canMove = true;
+        }
     }
 
     private State GetState(CharacterState characterState)

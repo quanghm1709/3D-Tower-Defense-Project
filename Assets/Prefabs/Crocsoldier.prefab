@@ -153,6 +153,7 @@ MonoBehaviour:
   closetEnemy: {fileID: 0}
   rb: {fileID: 1605891561892416393}
   anim: {fileID: 6080190538932094189}
+  col: {fileID: 4542355898394256532}
   movePos: {fileID: 0}
   navMeshAgent: {fileID: 4542355898394256535}
   speed: 5
@@ -166,6 +167,7 @@ MonoBehaviour:
   - {fileID: 4534349423818634476, guid: 573047af946422f478f8546674a7c9eb, type: 3}
   - {fileID: 3625320171520747420, guid: 9e31a85b0f8848346b1e28c476bc3dd7, type: 3}
   _characterState: 0
+  gold: 10
 --- !u!1 &4542355900220501734
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +282,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crocsoldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a7b00a3aef297a347a6bdc5eb20e4217,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a7b00a3aef297a347a6bdc5eb20e4217,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: a7b00a3aef297a347a6bdc5eb20e4217,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b00a3aef297a347a6bdc5eb20e4217, type: 3}

@@ -7,13 +7,19 @@ public class UIController : MonoBehaviour
 {
     public static UIController instance;
 
-    [SerializeField] private GameObject myChar;
-    [SerializeField] private Camera cam;
-    [SerializeField] private GameObject readyAlert;
+    [SerializeField] private int myChar;
+    [SerializeField] public Camera cam;
+    [SerializeField] public GameObject readyAlert;
+    [SerializeField] public GameObject spawnRange;
+    [SerializeField] public GameObject chooseCharacterBtn;
+    [SerializeField] public GameObject fightBtn;
+    [SerializeField] public Text playerGold;
+
     public GameObject winPanel;
+    public GameObject losrPanel;
     public Slider enemyTowerHp;
     public TowerController enemyTower;
-    private bool ready = false;
+    
 
     private void Start()
     {
@@ -23,28 +29,21 @@ public class UIController : MonoBehaviour
     {
         enemyTowerHp.value = enemyTower.currentHp;
         enemyTowerHp.maxValue = enemyTower.maxHp;
-        if (Input.GetMouseButtonDown(0) && ready)
-        {
-            SpawnCharacter();
-        }
-    }
-    public void ReadyToSpawn()
-    {
-        ready = true;
-        readyAlert.SetActive(true);
+
     }
 
-    public void SpawnCharacter()
+    public void StartBattle()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
-        {
-            Debug.Log(raycastHit.point);
-            Vector3  point = new Vector3(raycastHit.point.x, raycastHit.point.y + 1, raycastHit.point.z);
-            Instantiate(myChar, point, Quaternion.Euler(new Vector3(0, -180,0)));
-            ready = false;
-            readyAlert.SetActive(false);
-        }
-        
+        GameManager.instance.StartBattle();
+        fightBtn.SetActive(false);
     }
+    public void ReadyToSpawn(int i)
+    {
+        GameManager.instance.ready = true;
+        readyAlert.SetActive(true);
+        spawnRange.SetActive(true);
+        GameManager.instance.SetCharToSpawn(i);
+        chooseCharacterBtn.transform.position = new Vector3(chooseCharacterBtn.transform.position.x, -90f, chooseCharacterBtn.transform.position.z);
+    }
+
 }
